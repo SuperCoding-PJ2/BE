@@ -1,0 +1,22 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        url: jdbc:mysql://supercoding-pj2.cdgec0kk87c1.us-east-1.rds.amazonaws.com:3306/supercoding-PJ2
+        username: hyeonjin
+        password: rows3468314
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+
+# Swagger
+springdoc:
+    api-docs:
+        path: /api-docs
+    swagger-ui:
+        path: /swagger-ui.html
