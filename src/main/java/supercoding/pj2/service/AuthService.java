@@ -47,6 +47,14 @@ public class AuthService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new UnauthorizedException("이메일 또는 비밀번호가 틀렸습니다."));
 
+        if (user.isDeleted()) {
+            throw new UnauthorizedException("탈퇴한 계정입니다.");
+        }
+
+        if (!user.getProvider().name().equals("LOCAL")) {
+            throw new UnauthorizedException("소셜 로그인 계정입니다. 일반 로그인은 사용할 수 없습니다.");
+        }
+
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new UnauthorizedException("이메일 또는 비밀번호가 틀렸습니다.");
         }
@@ -54,6 +62,7 @@ public class AuthService {
         String token = jwtProvider.generateToken(user.getId(), user.getEmail(), user.getProvider().name());
         return new LoginResponseDto(token);
     }
+
 
     public OAuthResponseDto login(String provider, String code) {
         // 1. access token 받아오기

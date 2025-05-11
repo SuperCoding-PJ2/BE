@@ -9,4 +9,5 @@ public class SellerProductRequestDto {
     private Long userId;
     private Long productId;
     private int stock;
+    private LocalDate endDate;
 }

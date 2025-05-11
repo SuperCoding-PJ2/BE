@@ -24,4 +24,8 @@ public class SellerItem extends BaseEntity {
 
     @Column(nullable = false)
     private int stock;
+
+    @Column(nullable = false)
+    private LocalDate endDate;
+
 }

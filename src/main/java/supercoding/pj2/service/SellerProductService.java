@@ -28,6 +28,7 @@ public class SellerProductService {
                 .userId(request.getUserId())
                 .productId(product.getId())
                 .stock(request.getStock())
+                .endDate(request.getEndDate())
                 .build();
 
         sellerItemRepository.save(sellerItem);
@@ -52,5 +53,10 @@ public class SellerProductService {
             );
         }).collect(Collectors.toList());
     }
+
+    public SellerProductResponseDto registerProduct(SellerProductRequestDto request) {
+        if (request.getEndDate() == null) {
+            throw new IllegalArgumentException("판매 종료일은 필수입니다.");
+        }
 
 }
