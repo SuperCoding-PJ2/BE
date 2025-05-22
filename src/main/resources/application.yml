@@ -6,6 +6,7 @@ spring:
         url: jdbc:mysql://supercodingpj2-db.c3mauekkk9cl.ap-northeast-2.rds.amazonaws.com:3306/supercodingpj2
         username: admin
         password: codingpj
+
     jpa:
         hibernate:
             ddl-auto: update
