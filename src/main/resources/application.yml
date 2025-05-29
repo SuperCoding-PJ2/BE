@@ -40,9 +40,10 @@ cloud:
             access-key: ${AWS_ACCESS_KEY}
             secret-key: ${AWS_SECRET_KEY}
         region:
-            static: ap-northeast-2
+            staticRegion: ${AWS_REGION}
         s3:
-            bucket: supercodingpj2-static-files
+
+            bucket: ${AWS_BUCKET_NAME}
 
 oauth:
     google:
@@ -57,3 +58,4 @@ oauth:
         client-id: ${NAVER_CLIENT_ID}
         client-secret: ${NAVER_CLIENT_SECRET}
         redirect-uri: ${NAVER_REDIRECT_URI}
+
