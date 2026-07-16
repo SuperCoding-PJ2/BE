@@ -10,19 +10,6 @@ MultipartFile 기반 이미지 업로드부터 S3 URL 생성, 상품 정보 저�
 
 또한 AWS 인증 정보 분리, 예외 처리, JPA Auditing 등을 적용하여 유지보수성과 보안성을 함께 고려하였습니다.
 
-시스템 아키텍처
-Client (React / Postman)
-        │
-        ▼
-Spring Boot API
-        │
- ┌──────┴──────┐
- ▼             ▼
-Amazon S3   Amazon RDS
-(Image)      (MySQL)
-        │
-        ▼
-Response (Image URL)
 주요 기능
 1. 이미지 업로드
 
